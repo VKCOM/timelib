@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/isharipov/CODE/kphp-timelib
+CMAKE_SOURCE_DIR = ./
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/isharipov/CODE/kphp-timelib
+CMAKE_BINARY_DIR = ./
 
 #=============================================================================
 # Targets provided globally by CMake.
