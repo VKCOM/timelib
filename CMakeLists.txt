@@ -65,7 +65,7 @@ add_library(kphp-timelib STATIC ${TIMELIB_ALL_SOURCES})
 add_library(vk::kphp-timelib ALIAS kphp-timelib)
 
 target_compile_options(kphp-timelib PUBLIC
-    -std=c11
+    -std=gnu11
     -O3
     -Wall -Werror -Wextra -Wmaybe-uninitialized -Wmissing-field-initializers -Wshadow
     -Wno-unused-parameter
