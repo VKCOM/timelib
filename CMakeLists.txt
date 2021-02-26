@@ -64,22 +64,21 @@ set_source_files_properties(
 add_library(kphp-timelib STATIC ${TIMELIB_ALL_SOURCES})
 add_library(vk::kphp-timelib ALIAS kphp-timelib)
 
-target_compile_options(kphp-timelib PUBLIC
+target_compile_options(kphp-timelib PRIVATE
     -std=gnu11
     -O3
     -Wall -Werror -Wextra -Wmissing-field-initializers -Wshadow
     -Wno-unused-parameter
-    -pedantic
     -DHAVE_STDINT_H -DHAVE_GETTIMEOFDAY -DHAVE_UNISTD_H -DHAVE_DIRENT_H
 )
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  target_compile_options(kphp-timelib PUBLIC -Wmaybe-uninitialized)
+  target_compile_options(kphp-timelib PRIVATE -Wmaybe-uninitialized)
   if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL "7.0.0")
     message("GCC >= 7, adding extra compile options")
-    target_compile_options(kphp-timelib PUBLIC -Wno-implicit-fallthrough)
+    target_compile_options(kphp-timelib PRIVATE -Wno-implicit-fallthrough)
   endif()
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  target_compile_options(kphp-timelib PUBLIC -Wuninitialized)
+  target_compile_options(kphp-timelib PRIVATE -Wuninitialized)
 endif()
 
 set_target_properties(kphp-timelib PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${OBJS_DIR})
