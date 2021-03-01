@@ -68,7 +68,7 @@ target_compile_options(kphp-timelib PRIVATE
     -std=gnu11
     -O3
     -Wall -Werror -Wextra -Wmissing-field-initializers -Wshadow
-    -Wno-unused-parameter
+    -Wno-unused-parameter -Wno-float-conversion
     -DHAVE_STDINT_H -DHAVE_GETTIMEOFDAY -DHAVE_UNISTD_H -DHAVE_DIRENT_H
 )
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
