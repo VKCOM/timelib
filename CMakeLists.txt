@@ -12,14 +12,13 @@ cmake_minimum_required(VERSION 3.14..3.18)
 #
 #   cpack
 #   sudo dpkg -i kphp-timelib_*.deb
-
-# Included for CMAKE_INSTALL_PREFIX and other variables.
-include(GNUInstallDirs)
-
 project(kphp-timelib
         VERSION 1.0.0
         DESCRIPTION "timelib 2020.02 library fork for KPHP"
         HOMEPAGE_URL "https://github.com/derickr/timelib")
+
+# Included for CMAKE_INSTALL_PREFIX and other variables.
+include(GNUInstallDirs)
 
 set(BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(OBJS_DIR "${BASE_DIR}/objs")
