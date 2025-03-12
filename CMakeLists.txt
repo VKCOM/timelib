@@ -78,7 +78,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_compile_options(kphp-timelib PRIVATE -Wno-implicit-fallthrough)
   endif()
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  target_compile_options(kphp-timelib PRIVATE -Wuninitialized)
+  target_compile_options(kphp-timelib PRIVATE -Wuninitialized -Wno-implicit-fallthrough)
 endif()
 
 set_target_properties(kphp-timelib PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${OBJS_DIR})
