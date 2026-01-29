@@ -89,6 +89,10 @@ set_target_properties(kphp-timelib PROPERTIES PUBLIC_HEADER "timelib.h")
 
 add_dependencies(kphp-timelib kphp-timelib-includecopy kphp-timelib-codegen)
 
+if(TIMELIB_ALLOC_FUNC_PREFIX)
+    target_compile_definitions(kphp-timelib PUBLIC TIMELIB_ALLOC_FUNC_PREFIX=${TIMELIB_ALLOC_FUNC_PREFIX})
+endif()
+
 install(TARGETS kphp-timelib
         COMPONENT KPHP
         LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}"
