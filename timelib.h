@@ -314,7 +314,30 @@ typedef struct _timelib_tzdb {
 	const unsigned char            *data;
 } timelib_tzdb;
 
-#ifndef timelib_malloc
+#ifdef TIMELIB_ALLOC_FUNC_PREFIX
+# define CONCATENATE_HELPER(prefix, name) prefix##name
+# define ADD_PREFIX(prefix, name) CONCATENATE_HELPER(prefix, name)
+
+# define timelib_malloc  ADD_PREFIX(TIMELIB_ALLOC_FUNC_PREFIX, malloc)
+# define timelib_realloc ADD_PREFIX(TIMELIB_ALLOC_FUNC_PREFIX, realloc)
+# define timelib_calloc  ADD_PREFIX(TIMELIB_ALLOC_FUNC_PREFIX, calloc)
+# define timelib_strdup  ADD_PREFIX(TIMELIB_ALLOC_FUNC_PREFIX, strdup)
+# define timelib_free    ADD_PREFIX(TIMELIB_ALLOC_FUNC_PREFIX, free)
+
+# ifdef __cplusplus
+extern "C" {
+# endif
+
+void* timelib_malloc(size_t size);
+void* timelib_realloc(void* ptr, size_t size);
+void* timelib_calloc(size_t num, size_t size);
+char* timelib_strdup(const char* str1);
+void timelib_free(void* ptr);
+
+# ifdef __cplusplus
+} /* extern "C" */
+# endif
+#else
 # define timelib_malloc  malloc
 # define timelib_realloc realloc
 # define timelib_calloc  calloc
